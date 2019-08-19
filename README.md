@@ -7,9 +7,107 @@ Study Front-End, Basic (by,suho Kim)
 
 ## Part1,
 
+> 오리엔테이션, 프론트엔드란?
+
 
 
 ## Part2,
+
+> 값, 식, 그리고 문
+
+```
+값,식,문
+```
+
+`1+2` 값 + 값, 값 연산자 값 = 값, 식 = 값 -언어적 측면 : 문법(syntax),의미(semantic) -수학적 측면 : 연산, 값으로연결
+
+```
+값은 값을 구하더라도 여러가지 식이있다.
+리터럴
+```
+
+`x = 1 + 2` 여기서 `=` 이부분은 대입연산자라고 부른다. `+` 연산자`x` 는 변수 (좌변)
+
+##### 연산자의 분류
+
+- 단항연산자
+- 이항연산자
+- 삼항연산자
+
+##### 값의종류 (type)
+
+- 숫자 (number)
+- 문자 (string)
+- 불리언,논리 (참,거짓)
+- 배열 (object)
+- 객체 (object)
+- 함수 (function)
+- 기타 (object.. null/undefined)
+
+> 
+
+#### 변수
+
+- 식별자
+- 임시적인 상태
+
+> 변수가 많으면, 예측힘들어지고, 코드가 읽기 힘들어진다.(사람)
+>
+> 거기에 이름이 이상하게 지어두면 헬로감…..
+>
+> => 즉, 변수가 많더라도 의미있는 이름으로 작성하여 가독성을 좋게 할것
+
+##### 정리
+
+- 답은 주어져있고, 그답을 구하는 식을 작성, 그식에 이름을 붙이는 행위
+- 답(요구사항) 그답을구하는식(알고리즘) 그식에 이름(식별자)를 붙이는 행위
+- 이런행위를 코딩, 행위의 수단이 코드
+- 이런 코드를 어디에 어떻게 잘배치할것인가? (디자인패턴)
+
+#### 함수
+
+- 선언
+- 호출(실행)
+
+`방앗간` `자판기` 생각해볼것
+
+방앗간기계라는 함수
+
+function 방앗간기계(){};
+
+```
+떡 = 방앗간기계(쌀);
+시금치떡 = 방앗간기계(쌀,시금치);` 관점에 따라 `초록떡 = 방앗간기계(쌀,시금치);
+```
+
+##### 함수의특성
+
+- 선언,호출
+- 반환
+- 익명함수
+- 그자체로값
+- 스코프
+
+##### 익명함수
+
+값으로 사용될 때의 함수는 이름이 없어도 된다.
+
+##### 콜백함수
+
+인자로 사용되어 호출 제어권을 이전하는 함수
+
+```
+on('click', function(e){
+	alert('Hello');
+});
+//on()함수가 클릭이 발생되면 function(e) 인자의 함수가 동작한다.
+```
+
+##### 왜 더 복잡해보이는 ? 또는 간단한 함수를 만드는가?
+
+- 식에 이름을 붙일수있다.
+- 재사용 가능하다
+- 사이드이펙트(부작용,부수적인 무언가가 작용)를 이르킬수있다. (예상치못한부분)
 
 
 
@@ -17,7 +115,7 @@ Study Front-End, Basic (by,suho Kim)
 
 > `문` 에 대해서 이해하고 학습하기
 
-조건문,반복문
+조건문,반복문,과제
 
 #### 문의 형태
 
@@ -38,88 +136,7 @@ for(초기값;조건;반복;){
 
 문의 형태는 동일하다.
 
-
-
-자바스크립트에서는 함수는 값이다.
-
-```javascript
-f = function(){}  // 함수표현식
-
-function f(){} // 함수선언문
-```
-
-표현의 차이일뿐 별의미없다. 함수도 `값` 이다.
-
-
-
-#### if문을 이용하여 짝수 홀수 조건문 만들어볼것
-
-```javascript
-function isEven(a) {
-  if (a % 2 === 0) return true;
-  return false;
-}
-
-console.log(isEven(30));
-console.log(isEven(29));
-console.log(isEven(28));
-console.log(isEven(27));
-
-function isOdd(a) {
-  // if (a % 2 === 1) {
-  //   return true;
-  // } else {
-  //   return false;
-  // }
-  return a % 2 !== 0;
-}
-
-console.log(isOdd(30));
-console.log(isOdd(29));
-
-```
-
-
-
-#### swich 문
-
-```javascript
-function getDayOfWeek(num) {
-  switch (num) {
-    case 0:
-      return console.log("Sun");
-    case 1:
-      return console.log("Mon");
-    case 2:
-      return console.log("Tue");
-    case 3:
-      return console.log("Wed");
-    case 4:
-      return console.log("Thu");
-    case 5:
-      return console.log("Fri");
-    case 6:
-      return console.log("Sat");
-    default:
-      return console.log(null);
-  }
-}
-
-getDayOfWeek(0);
-getDayOfWeek(1);
-getDayOfWeek(2);
-getDayOfWeek(3);
-getDayOfWeek(4);
-getDayOfWeek(5);
-getDayOfWeek(6);
-getDayOfWeek(7);
-```
-
-
-
 #### 스코프(유효범위)
-
-- 밖에서 안을 건들수가없다. (에러)
 
 함수내에 쓰이는 변수는 외부밖에서 변수를 찾을수없다.
 
@@ -139,8 +156,6 @@ a();
 console.log(aaaa); // 이위치에서는 a()가 무슨일을 하는지 알수없어서 찾을수없다.
 ```
 
-
-
 #### while 문
 
 ```javascript
@@ -150,55 +165,11 @@ while(조건식){
 //완료후 조건식을 다시 평가
 ```
 
-```javascript
-//while 반복문 사용해보기
-function logRepeat(){
-  var i = 1;
-  while(i <= 10){
-    console.log(i);
-    i++;
-  }
-}
-logRepeat();
-```
-
-```javascript
-function fizzBuzzGame(max) {
-  var i = 1;
-  while (i <= max) {
-    console.log(fizzBuzz(i));
-    i++;
-  }
-}
-
-fizzBuzzGame(50);
-```
-
-
-
 #### 구구단 만들기
 
 1. 2단구구단만들기
 2. 5,4 입력했을때 5단의 4까지 출력
 3. 1,2 조건 합쳐서 리팩토링 하기
-
-```javascript
-function gugudan(num, maxNum) {
-  var i = 1;
-  // if(maxNum === undefined){
-  //   maxNum = 9;
-  // }
-  maxNum = maxNum || 9;
-  while (i <= maxNum) {
-    console.log(`${num} * ${i} = ${num * i}`);
-    i++;
-  }
-  console.log('the end')
-}
-
-gugudan(2);
-gugudan(5,4);
-```
 
 #### 비동기 함수
 
