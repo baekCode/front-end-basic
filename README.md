@@ -147,3 +147,7 @@ while(조건식){
 - setTimeout
 - setInterval 
 
+
+
+## part4,
+
