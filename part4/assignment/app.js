@@ -9,7 +9,7 @@ function getDayOfWeek1(day,lang){
         a = ['일','월','화','수','목','금','토']
         return a[day];
     } else {
-        console.error('2개의 condition을 정확히 입력해주세요.')
+        console.error('2개의 값을 정확히 입력해주세요.')
     }    
 }
 
