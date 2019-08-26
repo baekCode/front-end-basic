@@ -2,31 +2,26 @@
 // 의문.. 사용자가 2개의 인자값을 인지하고있는건가..?
 function getDayOfWeek1(day,lang){
     var a; 
-    if(lang === 'US') {
+    if(lang === ('US' && 'us')) {
         a = ['sun','mon','tue','wed','thu','fri','sat']
-    } else {
-        console.log('US 또는 KR 입력해주세요.')
-    }
-	if(lang === 'KR') {
+        return a[day];
+    } else if(lang === ('KR' && 'kr')) {
         a = ['일','월','화','수','목','금','토']
+        return a[day];
     } else {
-        console.log('US 또는 KR 입력해주세요.')
-    }
-    return a[day];
+        console.error('2개의 condition을 정확히 입력해주세요.')
+    }    
 }
 
 getDayOfWeek1(0,'US');
+getDayOfWeek1(0,'us');
 getDayOfWeek1(0,'KR');
 //예외
+getDayOfWeek1(0);
 getDayOfWeek1(0,'미국');
 
 
-
-/*
-    리팩토링 해야 할 부분 찾아보기, 
-    1번, a 변수 그대로이지만 언어값에 따라 변환되기?
-    2번, 사용자가 겪을 오류/버그 찾아볼것
-*/
+// 리팩토링
 function getDayOfWeek2(day,lang){
     var a = ['sun','mon','tue','wed','thu','fri','sat']
 
