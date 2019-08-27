@@ -151,3 +151,82 @@ while(조건식){
 
 ## part4,
 
+
+##### if문은 3중처리 하지말자, 가능하면 2중첩까지만들지말자,
+
+예) 아래와 같은 코드 형식 
+
+```javascript
+if(){
+	if(){
+		if(){}
+	}
+}
+```
+
+
+
+#### 배열
+
+```javascript
+var arr1 = []; // 배열 리터럴
+
+var arr2 = new Array();
+```
+
+
+
+배열의 특정 인덱스를 읽기
+
+- 배열은 0부터 시작한다.
+- colors[값]
+
+```javascript
+var colors = [
+	'red',
+	'black'
+]
+
+colors[0]; // red;
+colors[1]; // black;
+colors[2]; // undefined;
+```
+
+
+
+
+사용자 입장에서 실행함수를 먼저 생각해보고 만들것,
+
+```
+순서상으로
+1번, function sum(){}
+2번, sum();
+
+이거보다는
+1번, sum();
+2번, function sum(){}
+-sum(1,2,4) 또는 여러 인자, 인자값에 따른 함수가 변경이 될수있고, 사용자의 의도를 먼저 알아볼수있도록할것
+```
+
+
+
+#### 객체
+
+- 
+
+```javascript
+var obj = {};
+
+var person = {
+	name : 'jueun',
+	age : 35
+  ///key : value
+};
+
+// name 은 key 라고 부르고, 'jueun' 부분을 value 값 이라고 부른다
+```
+
+값읽기
+
+person.eat();
+
