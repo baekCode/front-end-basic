@@ -56,6 +56,20 @@ function 숫자정렬(a,b){
 function 나이40이상(item){
   return item.age >= 40;
 }
+function 나이50이상(item){
+  return item.age >= 50;
+}
+
+function 이름필터(item){
+  var result =[];
+  var i = 0;
+  while(i<item.length){
+    result.push(item[i].name);
+    i++;
+  }
+  return result;
+}
+
 
 var 홀수들 = numbers.filter(홀수필터);
 console.log('홀수들: ', 홀수들);
@@ -71,6 +85,11 @@ console.log('나이가40이상인사람들: ', 나이가40이상인사람들);
 
 var 나이가50이상인사람들의이름 = people.xxxxx().xxxxx();
 console.log('나이가50이상인사람들의이름: ', 나이가50이상인사람들의이름);
+
+//작업 중 상태
+var 나이가50이상인사람들의이름 = people.filter(나이50이상);
+console.log('나이가50이상인사람들의이름: ', 나이가50이상인사람들의이름);
+console.log(이름필터(people));
 
 var 직업이developer인사람을나이순서대로정렬 = people.xxxxx().xxxxx();
 console.log('직업이developer인사람을나이순서대로정렬: ', 직업이developer인사람을나이순서대로정렬);
