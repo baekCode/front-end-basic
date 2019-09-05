@@ -70,6 +70,13 @@ function 이름필터(item){
   return result;
 }
 
+function 개발자(item){
+  return item.job === 'developer';
+}
+
+function 나이순(a,b){
+  return a.age - b.age;
+}
 
 var 홀수들 = numbers.filter(홀수필터);
 console.log('홀수들: ', 홀수들);
@@ -91,7 +98,7 @@ var 나이가50이상인사람들의이름 = people.filter(나이50이상);
 console.log('나이가50이상인사람들의이름: ', 나이가50이상인사람들의이름);
 console.log(이름필터(people));
 
-var 직업이developer인사람을나이순서대로정렬 = people.xxxxx().xxxxx();
+var 직업이developer인사람을나이순서대로정렬 = people.filter(개발자).sort(나이순);
 console.log('직업이developer인사람을나이순서대로정렬: ', 직업이developer인사람을나이순서대로정렬);
 
 var 직업이developer인사람을나이순서대로정렬하고직업은대문자 = people.xxxxx().xxxxx().xxxxx();
