@@ -56,18 +56,13 @@ function 숫자정렬(a,b){
 function 나이40이상(item){
   return item.age >= 40;
 }
+
 function 나이50이상(item){
   return item.age >= 50;
 }
 
 function 이름필터(item){
-  var result =[];
-  var i = 0;
-  while(i<item.length){
-    result.push(item[i].name);
-    i++;
-  }
-  return result;
+  return item.name;
 }
 
 function 개발자(item){
@@ -76,6 +71,11 @@ function 개발자(item){
 
 function 나이순(a,b){
   return a.age - b.age;
+}
+
+function 대문자(item){
+  item.job = item.job.toUpperCase();
+  return item;
 }
 
 var 홀수들 = numbers.filter(홀수필터);
@@ -90,16 +90,12 @@ console.log('곱하기2한애들을숫자순서대로정렬: ', 곱하기2한애
 var 나이가40이상인사람들 = people.filter(나이40이상);
 console.log('나이가40이상인사람들: ', 나이가40이상인사람들);
 
-var 나이가50이상인사람들의이름 = people.xxxxx().xxxxx();
+var 나이가50이상인사람들의이름 = people.filter(나이50이상).map(이름필터);
 console.log('나이가50이상인사람들의이름: ', 나이가50이상인사람들의이름);
-
-//작업 중 상태
-var 나이가50이상인사람들의이름 = people.filter(나이50이상);
-console.log('나이가50이상인사람들의이름: ', 나이가50이상인사람들의이름);
-console.log(이름필터(people));
 
 var 직업이developer인사람을나이순서대로정렬 = people.filter(개발자).sort(나이순);
 console.log('직업이developer인사람을나이순서대로정렬: ', 직업이developer인사람을나이순서대로정렬);
 
-var 직업이developer인사람을나이순서대로정렬하고직업은대문자 = people.xxxxx().xxxxx().xxxxx();
+var 직업이developer인사람을나이순서대로정렬하고직업은대문자 = people.filter(개발자).sort(나이순).map(대문자);
 console.log('직업이developer인사람을나이순서대로정렬하고직업은대문자: ', 직업이developer인사람을나이순서대로정렬하고직업은대문자);
+
