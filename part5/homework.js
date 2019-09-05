@@ -49,13 +49,17 @@ function 곱하기(num){
   return num * 2;
 }
 
+function 숫자정렬(a,b){
+  return a - b;
+}
+
 var 홀수들 = numbers.filter(홀수필터);
 console.log('홀수들: ', 홀수들);
 
 var 곱하기2한애들 = numbers.map(곱하기);
 console.log('곱하기2한애들: ', 곱하기2한애들);
 
-var 곱하기2한애들을숫자순서대로정렬 = numbers.xxxxx().xxxxx();
+var 곱하기2한애들을숫자순서대로정렬 = numbers.map(곱하기).sort(숫자정렬);
 console.log('곱하기2한애들을숫자순서대로정렬: ', 곱하기2한애들을숫자순서대로정렬);
 
 var 나이가40이상인사람들 = people.xxxxx();
