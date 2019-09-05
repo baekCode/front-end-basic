@@ -42,13 +42,17 @@ var people = [{
 var numbers = [5, 12, 34, 22, -6, 77, 30, 55, 102, 32, 1155, 324, 1142, 998, 921, 471, 753, 662, 432];
 
 function 홀수필터(num){
-  return num % 2 !== 0;;
+  return num % 2 !== 0;
+}
+
+function 곱하기(num){
+  return num * 2;
 }
 
 var 홀수들 = numbers.filter(홀수필터);
 console.log('홀수들: ', 홀수들);
 
-var 곱하기2한애들 = numbers.xxxxx();
+var 곱하기2한애들 = numbers.map(곱하기);
 console.log('곱하기2한애들: ', 곱하기2한애들);
 
 var 곱하기2한애들을숫자순서대로정렬 = numbers.xxxxx().xxxxx();
