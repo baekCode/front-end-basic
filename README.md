@@ -230,3 +230,23 @@ var person = {
 
 person.eat();
 
+
+## Part5,
+
+> `배열` `객체` 에 대해서 이해하고 학습하기
+
+자주쓰는 Array 메소드
+- filter
+- map
+- forEach : 반환하지 않고 반복만 한다. (사실상 잘 안쓰게된다.)
+- every
+- some
+- reduce ….
+
+자주쓰는 string 메소드
+- toupperCase
+- replace
+- split
+- trim
+- indexOf
+
