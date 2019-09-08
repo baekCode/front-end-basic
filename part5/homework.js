@@ -73,6 +73,7 @@ function 나이순(a,b){
   return a.age - b.age;
 }
 
+//데이터가 가공되버림,사이드임팩트 발생
 function 대문자(item){
   item.job = item.job.toUpperCase();
   return item;
@@ -96,6 +97,11 @@ console.log('나이가50이상인사람들의이름: ', 나이가50이상인사�
 var 직업이developer인사람을나이순서대로정렬 = people.filter(개발자).sort(나이순);
 console.log('직업이developer인사람을나이순서대로정렬: ', 직업이developer인사람을나이순서대로정렬);
 
-var 직업이developer인사람을나이순서대로정렬하고직업은대문자 = people.filter(개발자).sort(나이순).map(대문자);
+var 직업이developer인사람을나이순서대로정렬하고직업은대문자 = people.filter(개발자).sort(나이순).map(function(v){
+  return {
+    name: v.name,
+    age: v.age,
+    job: v.job.toUpperCase()
+  }
+});
 console.log('직업이developer인사람을나이순서대로정렬하고직업은대문자: ', 직업이developer인사람을나이순서대로정렬하고직업은대문자);
-
