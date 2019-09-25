@@ -15,33 +15,25 @@ const userDB = [
         email: 'suho.kim2@gmail.com',
         password: '1234',
         name: '김수호'
-    },
-    {
-        email: 'sosaer88@gmail.com',
-        password: '1234',
-        name: '백주은'
     }
 ];
 app.get('/', (req, res) => {
     res.render('index', {
         title: '과제',
-        subject: 'Hello 과제'
+        subject: 'Hello'
     });
 });
 app.get('/login', (req, res) => {
     res.render('login', {
         title: '과제',
-        subject: 'Hello 과제',
-        userEmail: userDB.email,
-        userPassword: userDB.password,
-        userName: userDB.name
+        subject: 'Hello'
     });
 });
 
 app.get('/register', (req, res) => {
     res.render('register', {
         title: '과제',
-        subject: 'Hello 과제'
+        subject: 'Hello '
     });
 });
 
@@ -55,22 +47,43 @@ app.post('/login', (req, res) => {
     const userEmail = req.body.email;
     const userPassword = req.body.password;
 
-    const checkEmail = userDB.filter((el)=>{
-        return el.email === userEmail;
-    });
-    const checkPassword = checkEmail.filter((el)=>{
-        return el.password === userPassword;
-    });
+    const filterEmail = (item) => {
+        return item.email;
+    }
+    const checkPassword = (item) => {
+        return item.password === userPassword
+    }
+
+    const checkEmail = userDB.map(filterEmail);
+
+    console.log(`회원 DB = ${userDB}`);
     console.log(`입력된 Email = ${userEmail}`);
     console.log(`입력된 Password = ${userPassword}`);
-    //console.log(checkPassword);
-    console.log(req.body);
+
+    res.writeHead(200,{
+        'content-type':'text/html; charset=utf-8'
+    })
+
+    if(checkEmail === userEmail) {
+        if(userDB[0].password === userPassword){
+            return res.end(`${userDB[0].name}님 환영합니다.`);
+        } else {
+            return res.end('비밀번호가 다릅니다.');
+        }
+    } else {
+        return res.end('회원이 아닙니다.');
+    }
+
 });
 
 app.post('/register', (req, res) => {
     // 아래 로직을 구현하라.
     // 1. userDB에 회원정보를 저장한다.
-
+    const userEmail = req.body.email;
+    const userPassword = req.body.password;
+    const userName = req.body.name;
+    userDB.push(req.body);
+    console.log(userDB);
     res.redirect('/login');
 });
 
