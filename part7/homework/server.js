@@ -15,6 +15,11 @@ const userDB = [
         email: 'suho.kim2@gmail.com',
         password: '1234',
         name: '김수호'
+    },
+    {
+        email: 'sosaer88@gmail.com',
+        password: '1234',
+        name: '백주은'
     }
 ];
 app.get('/', (req, res) => {
@@ -43,37 +48,36 @@ app.post('/login', (req, res) => {
     // 2. 없으면 '회원이 아닙니다.' 출력
     // 3. 있고 비밀번호가 맞으면 'xxx님 안녕하세요 출력'
     // 4. 비밀번호가 틀리면 '비밀번호가 틀립니다.' 출력
-    const checkDB = [];
-    const userEmail = req.body.email;
-    const userPassword = req.body.password;
-
-    const filterEmail = (item) => {
-        return item.email;
-    }
-    const checkPassword = (item) => {
-        return item.password === userPassword
-    }
-
-    const checkEmail = userDB.map(filterEmail);
-
-    console.log(`회원 DB = ${userDB}`);
-    console.log(`입력된 Email = ${userEmail}`);
-    console.log(`입력된 Password = ${userPassword}`);
-
     res.writeHead(200,{
         'content-type':'text/html; charset=utf-8'
-    })
-
-    if(checkEmail === userEmail) {
-        if(userDB[0].password === userPassword){
-            return res.end(`${userDB[0].name}님 환영합니다.`);
+    });
+    // email 반환
+    const userEmail = (uEmail) => {
+        return userDB.find( v => (v.email === uEmail));
+    };
+    // password 반환
+    const userPassword = (uPassword) => {
+        return userDB.find( v => (v.password === uPassword));
+    };
+    // email, password 반환
+    const userFind = (uEmail, uPassword) => {
+        return userDB.find(v => (v.email === uEmail && v.password === uPassword));
+    };
+    // uesrDB index 반환
+    const userFindIndex = (uEmail) => {
+        return userDB.findIndex( v => (v.email === uEmail));
+    };
+    const userIndex = userFindIndex(req.body.email);
+    // login Check
+    if (userEmail(req.body.email)){
+        if(userPassword(req.body.password)){
+            return res.end(`${userDB[userIndex].name}님 환영합니다.`);
         } else {
             return res.end('비밀번호가 다릅니다.');
         }
-    } else {
+    }  else {
         return res.end('회원이 아닙니다.');
     }
-
 });
 
 app.post('/register', (req, res) => {
