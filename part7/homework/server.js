@@ -59,10 +59,6 @@ app.post('/login', (req, res) => {
     const userPassword = (uPassword) => {
         return userDB.find( v => (v.password === uPassword));
     };
-    // email, password 반환
-    const userFind = (uEmail, uPassword) => {
-        return userDB.find(v => (v.email === uEmail && v.password === uPassword));
-    };
     // uesrDB index 반환
     const userFindIndex = (uEmail) => {
         return userDB.findIndex( v => (v.email === uEmail));
@@ -83,12 +79,23 @@ app.post('/login', (req, res) => {
 app.post('/register', (req, res) => {
     // 아래 로직을 구현하라.
     // 1. userDB에 회원정보를 저장한다.
-    const userEmail = req.body.email;
-    const userPassword = req.body.password;
-    const userName = req.body.name;
-    userDB.push(req.body);
-    console.log(userDB);
-    res.redirect('/login');
+    res.writeHead(200,{
+        'content-type':'text/html; charset=utf-8'
+    });
+    // email 반환
+    const userCheck = (uEmail) => {
+        return userDB.find( v => (v.email === uEmail));
+    };
+    if(!userCheck(req.body.email)) {
+        userDB.push({
+            email : req.body.email,
+            password : req.body.password,
+            name : req.body.name
+        })
+        res.redirect('/login');
+    } else {
+        res.end('이미 가입되어있습니다.');
+    }
 });
 
 app.listen(4000);
