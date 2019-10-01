@@ -32,9 +32,11 @@ app.get('/register', (req,res)=>{
 });
 
 app.post('/login', (req,res)=>{
-    request('http://localhost:4001/users', (err,response,body)=>{
-        console.log(body);
-        console.log(req.body);
+    request.get('http://localhost:4001/users', (err,response,body)=>{
+        const user = JSON.parse(body).find((user)=>user.email === req.body.email);
+        if(!user) return res.send('회원이 아닙니다.')
+        if(user.password !== req.body.password) return res.send('비밀번호가 틀립니다.')
+        res.send(`${user.name}님 환영합니다.`)
     });
 });
 
