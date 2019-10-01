@@ -32,10 +32,15 @@ app.get('/register', (req,res)=>{
 });
 
 app.post('/login', (req,res)=>{
-    request.get('http://localhost:4001/users', (err,response,body)=>{
+    request('http://localhost:4001/users', (err,response,body)=>{
+        //JSON형태로 변환
         const user = JSON.parse(body).find((user)=>user.email === req.body.email);
-        if(!user) return res.send('회원이 아닙니다.')
-        if(user.password !== req.body.password) return res.send('비밀번호가 틀립니다.')
+        //부정을 먼저 처리, 부정->긍정 순으로 처리
+        // 1단계 login 에서 넘긴 정보를 DB에서 email 확인
+        if(!user) return res.send('회원이 아닙니다.');
+        // 2단게 email이 맞을경우 현단계 실행, 패스워드 체크
+        if(user.password !== req.body.password) return res.send('비밀번호가 틀립니다.');
+        // 3단계 성공
         res.send(`${user.name}님 환영합니다.`)
     });
 });
