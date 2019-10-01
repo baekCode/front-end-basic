@@ -27,6 +27,8 @@ const userDB = [{
 app.get('/users', (req, res) => {
    res.send(userDB);
 });
-
-
+app.post('/register', (req, res)=>{
+    userDB.push(req.body);
+    res.send('성공');
+});
 app.listen(4001);
