@@ -55,6 +55,26 @@ app.get('/users', (req,res)=>{
     });
 });
 
+app.post('/login', (req,res)=>{
+    // 축약 버전
+    //const checkUser = userDB.find((user)=> user.email === req.body.email);
+    //if(!checkUser) res.send('회원이 아닙니다.');
+    //if(checkUser.password !== req.body.password) res.send('비밀번호가 틀립니다.');
+
+    const checkUser = userDB.find((user)=> {return user.email === req.body.email});
+    if(!checkUser) {
+        return res.send('회원이 아닙니다.')
+    }
+    if(checkUser.password !== req.body.password) {
+        return res.send('비밀번호가 틀립니다.');
+    }
+
+    //로그인 성공
+    res.send(`${checkUser.name}님 환영합니다.`);
+
+   console.log(checkUser);
+});
+
 app.listen(4000);
 
 

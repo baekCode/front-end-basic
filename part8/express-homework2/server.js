@@ -54,7 +54,7 @@ app.post('/login', (req,res)=>{
 });
 
 app.post('/register', (req,res)=>{
-   userDB.push(req.body);
+    userDB.push(req.body);
 });
 
 app.listen(8080);
