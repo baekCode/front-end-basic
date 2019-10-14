@@ -8,9 +8,15 @@ const Counter = () => {
     // const arr = useState(0);
     // const count = arr[0];
     // const setCount = arr[1];
+    const colorStyle = () => {
+        if (count > 0) return 'red';
+        if (count < 0) return 'blue';
+        return 'black'
+    };
+
     return (
         <div>
-            <div>{ count }</div>
+            <div style={{color:colorStyle()}}>{ count }</div>
             <button onClick={plus}>+</button>
             <button onClick={minus}>-</button>
         </div>
