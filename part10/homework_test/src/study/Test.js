@@ -2,13 +2,19 @@ import React, {useState} from 'react'
 
 const Test = (props) => {
     const [test, setTest] = useState(0);
-    const [name, setName] = useState('');
-    return (
+
+    //console.log(test);
+    const activeClass = () => {
+
+    }
+
+    return (   
         <div>
             <ul>
                 {props.children.map((list, i)=>{
                     const navClick = (e) => {
                         setTest(i);
+                        e.target.classList.add('active');                    
                     }
                     return (
                         <li 
@@ -27,7 +33,3 @@ const Test = (props) => {
 };
 
 export default Test
-
-/*
-    첫번째 클릭하면 첫번째 컨텐츠 보여준다.
-*/
