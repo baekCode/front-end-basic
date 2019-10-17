@@ -1,31 +1,29 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import './Test.scss';
 
 const Test = (props) => {
     const [test, setTest] = useState(0);
-
-    //console.log(test);
-    const activeClass = () => {
-
-    }
+    const [activeClass, setActiveClass] = useState('');
 
     return (   
-        <div>
-            <ul>
+        <div className={'tab'}>
+            <ul className={'tab-nav'}>
                 {props.children.map((list, i)=>{
                     const navClick = (e) => {
                         setTest(i);
-                        e.target.classList.add('active');                    
+                        setActiveClass(e.currentTarget.id)
                     }
                     return (
-                        <li 
-                        key={i} 
-                        onClick={navClick} 
-                        //className={}
+                        <li
+                            id={`nav-${i}`}
+                            key={i}
+                            onClick={navClick}
+                            className={activeClass === `nav-${i}` ? 'active' : ''}
                         >{list.props.nav}</li>
                     )
                 })}                
             </ul>
-            <div>
+            <div className={'tab-con'}>
                 {props.children[test].props.children}
             </div>
         </div>
@@ -33,3 +31,7 @@ const Test = (props) => {
 };
 
 export default Test
+
+
+
+

@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.tab {
+  width:600px;
+  .tab-nav {
+    li {
+      display:inline-block;
+      width:25%;
+      text-align: center;
+      line-height:30px;
+      border:1px solid #eee;
+      &.active {
+        font-weight:bold;
+        color:#fff;
+        background:#000
+      }
+    }
+  }
+  .tab-con {
+    width:100%;
+    padding:50px;
+    text-align: center;
+    border: 1px solid #eee;
+  }
+}

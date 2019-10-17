@@ -7,6 +7,8 @@ const App = () => {
             <Test>
                 <div nav="nav1">content 1</div>
                 <div nav="nav2">content 2</div>
+                <div nav="nav3">content 3</div>
+                <div nav="nav4">content 4</div>
             </Test>
         </div>
     )
