@@ -29,7 +29,6 @@ const Test = (props) => {
                     }
                     return (
                         <li
-                            id={`nav-${i}`}
                             key={i}
                             onClick={navClick}
                             className={test === i ? 'active' : ''}
