@@ -14,6 +14,19 @@ const Tabs = () => {
             setActiveIndex(index);
         }
     };
+    const prev = () => {
+        if((activeIndex -1) < 0) {
+            return setActiveIndex(tabList.length -1);
+        }
+        return setActiveIndex(activeIndex -1);
+    };
+    const next = () => {
+        if ((activeIndex + 1) === tabList.length) {
+            return  setActiveIndex(0);
+        }
+        return setActiveIndex(activeIndex + 1);
+    };
+
     return (
         <div>
             <ul>
@@ -28,6 +41,8 @@ const Tabs = () => {
                     )
                 })}
             </ul>
+            <button onClick={prev}>이전</button>
+            <button onClick={next}>다음</button>
             <div>
                 {tabList[activeIndex].con}
             </div>
