@@ -7,7 +7,8 @@ const Tabs = () => {
         {title : '메뉴 3', color : 'red', con : 'if(kakao)dev2019'}
     ];
     const [activeIndex, setActiveIndex] = useState(0);
-    const getColor = (index, item) => activeIndex === index ? item.color : 'black';
+    const defaultColor = 'black';
+    const getColor = (index, item) => activeIndex === index ? item.color : defaultColor;
     const clickHandler = (index) => {
         return (e) => {
             e.preventDefault();
@@ -15,15 +16,11 @@ const Tabs = () => {
         }
     };
     const prev = () => {
-        if((activeIndex -1) < 0) {
-            return setActiveIndex(tabList.length -1);
-        }
+        if((activeIndex -1) < 0) setActiveIndex(tabList.length -1);
         return setActiveIndex(activeIndex -1);
     };
     const next = () => {
-        if ((activeIndex + 1) === tabList.length) {
-            return  setActiveIndex(0);
-        }
+        if ((activeIndex + 1) === tabList.length) setActiveIndex(0);
         return setActiveIndex(activeIndex + 1);
     };
 
