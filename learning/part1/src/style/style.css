@@ -1,0 +1,30 @@
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+div {
+    overflow: hidden;
+}
+ul {
+    width: 500px;
+    padding: 10px;
+    margin: 20px;
+    list-style: none;
+    border: 1px solid #ccc;
+    border-top: 2px solid #333;
+}
+li {
+
+}
+li span {
+    display: inline-block;
+    padding: 5px 8px;
+}
+
+li span:first-child {
+    width: 50%
+}
+li span:nth-child(2) {
+    width: 30%
+}
